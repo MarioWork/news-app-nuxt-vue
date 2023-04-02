@@ -17,5 +17,9 @@
     "eslint-plugin-vue": "^9.10.0",
     "nuxt": "^3.3.2",
     "prettier": "^2.8.7"
+  },
+  "dependencies": {
+    "sass": "^1.60.0",
+    "vuetify": "^3.1.4"
   }
 }
