@@ -1,7 +1,5 @@
 <template>
-  <div>Hello World</div>
+  <div>
+    <v-btn> Button </v-btn>
+  </div>
 </template>
-
-<script setup></script>
-
-<style scoped></style>
