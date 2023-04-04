@@ -7,4 +7,16 @@ export default defineNuxtConfig({
   build: {
     transpile: ["vuetify"],
   },
+  app: {
+    head: {
+      title: "News App",
+      meta: [
+        {
+          name: "description",
+          content:
+            "News app developed using Nuxt 3 and vue.js 3 for learning purposes",
+        },
+      ],
+    },
+  },
 });
