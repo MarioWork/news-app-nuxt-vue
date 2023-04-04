@@ -21,7 +21,7 @@
   },
   "overrides": [
     {
-      "files": ["*.js"],
+      "files": ["*.js", "*.ts"],
       "rules": {
         "no-undef": "off"
       }
