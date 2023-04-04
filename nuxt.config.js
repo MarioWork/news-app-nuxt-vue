@@ -4,6 +4,9 @@ export default defineNuxtConfig({
     public: {
       baseURL: "https://newsapi.org/v2",
     },
+    private: {
+      newsApiKey: process.env.NEWS_API_KEY,
+    },
   },
   css: [
     "vuetify/lib/styles/main.sass",
