@@ -1,23 +1,19 @@
 <template>
-  <v-layout>
-    <v-app-bar color="grey">
-      <v-app-bar-nav-icon
-        variant="text"
-        @click.stop="drawer = !drawer"
-      ></v-app-bar-nav-icon>
-      <v-toolbar-title>{{ currentCategory }} News</v-toolbar-title>
-    </v-app-bar>
-
-    <v-navigation-drawer v-model="drawer" temporary>
-      <v-list>
-        <v-list-item title="All"></v-list-item>
-        <v-list-item title="Technology"></v-list-item>
-      </v-list>
-    </v-navigation-drawer>
-  </v-layout>
+  <v-card>
+    <v-toolbar>
+      <v-toolbar-title
+        ><h1 class="text-center py-6">{{ currentCategory }} News</h1>
+      </v-toolbar-title>
+      <template #extension>
+        <v-tabs v-model="currentCategory" align-tabs="center" grow>
+          <v-tab value="All"> All </v-tab>
+          <v-tab value="Tech"> Tech </v-tab>
+        </v-tabs>
+      </template>
+    </v-toolbar>
+  </v-card>
 </template>
 
 <script setup>
-const drawer = ref(false);
 const currentCategory = ref("All");
 </script>
