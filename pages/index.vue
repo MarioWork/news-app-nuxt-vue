@@ -1,35 +1,36 @@
 <template>
-  <v-container fluid style="padding: 0">
-    <v-toolbar class="card">
-      <v-toolbar-title style="color: black" class="text-center">
-        <h1 class="py-6">{{ currentCategory.title }} News</h1>
-      </v-toolbar-title>
+  <v-card class="card">
+    <v-card-title class="text-center justify-center py-6">
+      <h1 class="font-weight-bold">{{ currentCategory.title }} News</h1>
+    </v-card-title>
 
-      <template #extension>
-        <v-tabs
-          v-model="currentCategory"
-          bg-color="transparent"
-          grow
-          fixed-tabs
-        >
-          <v-tab
-            v-for="category in categories"
-            :key="category.id"
-            :value="category"
-            style="color: black"
-          >
-            {{ category.title }}
-          </v-tab>
-        </v-tabs>
-      </template>
-    </v-toolbar>
-  </v-container>
+    <v-tabs
+      v-model="currentCategory"
+      bg-color="transparent"
+      color="white"
+      grow
+      fixed-tabs
+    >
+      <v-tab
+        v-for="category in categories"
+        :key="category.id"
+        :value="category"
+      >
+        {{ category.title }}
+      </v-tab>
+    </v-tabs>
+  </v-card>
 </template>
 
 <script setup>
 const categories = [
-  { id: 1, title: "All" },
-  { id: 2, title: "Tech" },
+  { id: 1, title: "General", value: "general" },
+  { id: 2, title: "Technology", value: "technology" },
+  { id: 3, title: "Business", value: "business" },
+  { id: 3, title: "Entertainment", value: "entertainment" },
+  { id: 3, title: "Science", value: "science" },
+  { id: 3, title: "Health", value: "health" },
+  { id: 4, title: "Sports", value: "sports" },
 ];
 const currentCategory = ref(categories[0]);
 </script>
@@ -42,5 +43,6 @@ const currentCategory = ref(categories[0]);
 
 .card {
   background-color: #219ebc;
+  border-radius: 0;
 }
 </style>
