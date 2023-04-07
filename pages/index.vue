@@ -19,7 +19,8 @@
         {{ category.title }}
       </v-tab>
     </v-tabs>
-    <div id="test">
+    <div v-if="pending">Loading...</div>
+    <div v-else id="test">
       <p v-for="{ title } in news.articles" :key="title">
         {{ title }}
       </p>
@@ -28,7 +29,7 @@
 </template>
 
 <script setup>
-const { categories, currentCategory, news } = await useNews();
+const { categories, currentCategory, news, pending } = await useNews();
 </script>
 
 <style scope>

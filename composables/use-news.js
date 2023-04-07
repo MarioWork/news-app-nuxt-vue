@@ -13,15 +13,13 @@ export async function useNews() {
 
   const currentCategory = ref(categories[0]);
 
-  const { data: news, pending } = await useFetch(() => `/top-headlines`, {
-    baseURL: config.baseURL,
-    query: {
-      apiKey: config.newsApiKey,
-      category: currentCategory.value.value,
-      language: "en",
-    },
-    watch: [currentCategory],
-  });
+  const { data: news, pending } = await useLazyFetch(
+    () =>
+      `/top-headlines?apiKey=${config.newsApiKey}&category=${currentCategory.value.value}&language=en`,
+    {
+      baseURL: config.baseURL,
+    }
+  );
 
   return {
     currentCategory,
