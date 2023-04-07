@@ -1,5 +1,5 @@
 <template>
-  <v-grid class="container" fluid>
+  <v-card class="noBorderRadius h-screen">
     <NavBar
       :categories="categories"
       :current-category="currentCategory"
@@ -14,7 +14,7 @@
       >
       </ArticleCard>
     </div>
-  </v-grid>
+  </v-card>
 </template>
 
 <script setup>
@@ -30,9 +30,8 @@ const categorySelected = (selected) => {
   color: white;
 }
 
-.container {
-  margin: 0;
-  padding: 0;
+.noBorderRadius {
+  border-radius: 0;
 }
 
 #test {
