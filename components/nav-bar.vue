@@ -1,7 +1,9 @@
 <template>
   <v-card class="card">
     <v-card-title class="text-center justify-center py-6 text-white">
-      <h1 class="font-weight-bold">{{ categorySelected?.title }} News</h1>
+      <h1 v-if="categorySelected?.title" class="font-weight-bold">
+        {{ categorySelected.title }} News
+      </h1>
     </v-card-title>
 
     <v-tabs
