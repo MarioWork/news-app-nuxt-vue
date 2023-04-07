@@ -19,11 +19,15 @@
         {{ category.title }}
       </v-tab>
     </v-tabs>
+    <div id="test">
+      {{ news }}
+    </div>
   </v-card>
 </template>
 
 <script setup>
-const { currentCategory, categories } = useNews();
+const { categories, currentCategory, news } = await useNews();
+console.log(news.value.totalResults);
 </script>
 
 <style scope>
@@ -35,5 +39,9 @@ const { currentCategory, categories } = useNews();
 .card {
   background-color: #219ebc;
   border-radius: 0;
+}
+
+#test {
+  color: black;
 }
 </style>
