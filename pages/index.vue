@@ -29,7 +29,7 @@
 </template>
 
 <script setup>
-const { categories, currentCategory, news, pending } = await useNews();
+const { categories, currentCategory, news, pending } = useNews();
 </script>
 
 <style scope>

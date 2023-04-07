@@ -8,12 +8,12 @@ const categories = [
   { id: 4, title: "Sports", value: "sports" },
 ];
 
-export async function useNews() {
+export function useNews() {
   const config = useRuntimeConfig();
 
   const currentCategory = ref(categories[0]);
 
-  const { data: news, pending } = await useLazyFetch(
+  const { data: news, pending } = useLazyFetch(
     () =>
       `/top-headlines?apiKey=${config.newsApiKey}&category=${currentCategory.value.value}&language=en`,
     {
