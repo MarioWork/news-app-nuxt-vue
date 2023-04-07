@@ -20,14 +20,15 @@
       </v-tab>
     </v-tabs>
     <div id="test">
-      {{ news }}
+      <p v-for="{ title } in news.articles" :key="title">
+        {{ title }}
+      </p>
     </div>
   </v-card>
 </template>
 
 <script setup>
 const { categories, currentCategory, news } = await useNews();
-console.log(news.value.totalResults);
 </script>
 
 <style scope>
@@ -42,6 +43,9 @@ console.log(news.value.totalResults);
 }
 
 #test {
-  color: black;
+  padding: 1em;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
 }
 </style>

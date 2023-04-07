@@ -11,22 +11,16 @@ const categories = [
 export async function useNews() {
   const config = useRuntimeConfig();
 
-  const currentCategory = ref(categories[1]);
+  const currentCategory = ref(categories[0]);
 
-  const {
-    data: news,
-    pending,
-    refresh,
-  } = await useLazyFetch(() => `/top-headlines`, {
+  const { data: news, pending } = await useFetch(() => `/top-headlines`, {
     baseURL: config.baseURL,
     query: {
       apiKey: config.newsApiKey,
       category: currentCategory.value.value,
+      language: "en",
     },
-  });
-
-  watch(currentCategory, async () => {
-    await refresh();
+    watch: [currentCategory],
   });
 
   return {
