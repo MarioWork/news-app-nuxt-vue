@@ -1,27 +1,10 @@
 <template>
-  <v-container class="container" fluid>
-    <v-card class="card">
-      <v-card-title class="text-center justify-center py-6 text-white">
-        <h1 class="font-weight-bold">{{ currentCategory.title }} News</h1>
-      </v-card-title>
-
-      <v-tabs
-        v-model="currentCategory"
-        bg-color="transparent"
-        color="white"
-        grow
-        fixed-tabs
-      >
-        <v-tab
-          v-for="category in categories"
-          :key="category.id"
-          :value="category"
-          class="font-weight-bold text-white"
-        >
-          {{ category.title }}
-        </v-tab>
-      </v-tabs>
-    </v-card>
+  <v-grid class="container" fluid>
+    <NavBar
+      :categories="categories"
+      :current-category="currentCategory"
+      @category-selected="categorySelected"
+    />
     <div v-if="pending">Loading...</div>
     <div v-else id="test">
       <ArticleCard
@@ -31,11 +14,15 @@
       >
       </ArticleCard>
     </div>
-  </v-container>
+  </v-grid>
 </template>
 
 <script setup>
 const { categories, currentCategory, news, pending } = useNews();
+
+const categorySelected = (selected) => {
+  currentCategory.value = selected;
+};
 </script>
 
 <style scope>
@@ -46,11 +33,6 @@ const { categories, currentCategory, news, pending } = useNews();
 .container {
   margin: 0;
   padding: 0;
-}
-
-.card {
-  background-color: #219ebc;
-  border-radius: 0;
 }
 
 #test {
