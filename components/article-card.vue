@@ -1,6 +1,6 @@
 <template>
   <v-card>
-    <v-img :src="article.urlToImage" height="200px" cover></v-img>
+    <v-img :src="article.urlToImage" cover></v-img>
     <v-card-text>
       {{ article.title }}
     </v-card-text>
