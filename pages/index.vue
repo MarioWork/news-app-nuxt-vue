@@ -1,19 +1,19 @@
 <template>
-  <v-card class="noBorderRadius h-screen">
+  <v-app class="noBorderRadius h-screen">
     <NavBar
       :categories="categories"
       :current-category="currentCategory"
       @category-selected="categorySelected"
     />
     <div v-if="pending">Loading...</div>
-    <ArticleCard
-      v-for="article in news.articles"
-      v-else
-      :key="article.id"
-      :article="article"
-    >
-    </ArticleCard>
-  </v-card>
+    <v-main v-else style="height: 100%; overflow-y: scroll">
+      <v-row>
+        <v-col v-for="article in news.articles" :key="article.id" cols="6">
+          <ArticleCard :article="article"> </ArticleCard>
+        </v-col>
+      </v-row>
+    </v-main>
+  </v-app>
 </template>
 
 <script setup>
