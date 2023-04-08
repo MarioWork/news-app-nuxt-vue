@@ -1,10 +1,11 @@
 <template>
-  <v-app-bar class="card">
-    <v-app-bar-title class="text-center justify-center py-6 text-white">
-      <h1 v-if="categorySelected?.title" class="font-weight-bold">
-        {{ categorySelected.title }} News
-      </h1>
-    </v-app-bar-title>
+  <v-app-bar class="primary-color w-100" extended height="150">
+    <h1
+      v-if="categorySelected?.title"
+      class="font-weight-bold text-center text-white w-100 text-h2"
+    >
+      {{ categorySelected.title }} News
+    </h1>
 
     <template #extension>
       <v-tabs
@@ -47,9 +48,8 @@ watch(categorySelected, (newValue) => {
 </script>
 
 <style lang="scss" scoped>
-.card {
+.primary-color {
   background-color: #219ebc;
-  border-radius: 0;
 }
 
 .text-white {
