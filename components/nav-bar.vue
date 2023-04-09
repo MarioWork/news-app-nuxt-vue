@@ -1,8 +1,8 @@
 <template>
-  <v-app-bar class="primary-color w-100" extended height="150">
+  <v-app-bar class="primary-color w-100" extended height="100">
     <h1
       v-if="categorySelected?.title"
-      class="font-weight-bold text-center text-white w-100 text-h2"
+      class="font-weight-bold text-center text-white w-100 text-xl-h2 text-lg-h2 text-md-h2 text-sm-h2 text-h3"
     >
       {{ categorySelected.title }} News
     </h1>
