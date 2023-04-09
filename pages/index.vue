@@ -5,10 +5,16 @@
       :current-category="currentCategory"
       @category-selected="categorySelected"
     />
-    <div v-if="pending">Loading...</div>
-    <v-main v-else style="height: 100%; overflow-y: scroll">
-      <v-row>
-        <v-col v-for="article in news.articles" :key="article.id" cols="6">
+    <v-main v-if="pending">Loading...</v-main>
+    <v-main v-else scrollable="true" class="h-100">
+      <v-row class="pa-6">
+        <v-col
+          v-for="article in news.articles"
+          :key="article.id"
+          cols="12"
+          lg="6"
+          xl="4"
+        >
           <ArticleCard :article="article"> </ArticleCard>
         </v-col>
       </v-row>
