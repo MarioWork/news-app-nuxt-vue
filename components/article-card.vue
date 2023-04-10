@@ -7,6 +7,16 @@
     <v-card-text>
       {{ article.description }}
     </v-card-text>
+    <v-row>
+      <v-col cols="5">
+        <v-card-text>
+          {{ article.author }}
+        </v-card-text>
+      </v-col>
+      <v-col cols="5">
+        <v-card-text> {{ article.publishedAt }} </v-card-text>
+      </v-col>
+    </v-row>
   </v-card>
 </template>
 
