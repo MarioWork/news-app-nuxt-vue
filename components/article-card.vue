@@ -8,13 +8,15 @@
       {{ article.description }}
     </v-card-text>
     <v-row>
-      <v-col cols="5">
+      <v-col cols="6">
         <v-card-text>
           {{ article.author }}
         </v-card-text>
       </v-col>
-      <v-col cols="5">
-        <v-card-text> {{ article.publishedAt }} </v-card-text>
+      <v-col cols="6">
+        <v-card-text class="text-right">
+          {{ article.publishedAt }}
+        </v-card-text>
       </v-col>
     </v-row>
   </v-card>
