@@ -8,22 +8,24 @@
     </h1>
 
     <template #extension>
-      <v-tabs
-        v-model="categorySelected"
-        bg-color="transparent"
-        color="white"
-        grow
-        fixed-tabs
-      >
-        <v-tab
-          v-for="category in categories"
-          :key="category.id"
-          :value="category"
-          class="font-weight-bold text-white"
+      <v-container>
+        <v-tabs
+          v-model="categorySelected"
+          bg-color="transparent"
+          color="white"
+          grow
+          fixed-tabs
         >
-          {{ category.title }}
-        </v-tab>
-      </v-tabs>
+          <v-tab
+            v-for="category in categories"
+            :key="category.id"
+            :value="category"
+            class="font-weight-bold text-white"
+          >
+            {{ category.title }}
+          </v-tab>
+        </v-tabs>
+      </v-container>
     </template>
   </v-app-bar>
 </template>
