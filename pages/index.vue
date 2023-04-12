@@ -1,5 +1,5 @@
 <template>
-  <v-app class="noBorderRadius h-screen">
+  <v-app class="h-screen">
     <NavBar
       :categories="categories"
       :current-category="currentCategory"
@@ -33,9 +33,5 @@ const categorySelected = (selected) => {
 <style scope>
 .text-white {
   color: white;
-}
-
-.noBorderRadius {
-  border-radius: 0;
 }
 </style>
