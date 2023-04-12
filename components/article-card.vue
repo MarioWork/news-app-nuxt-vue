@@ -15,7 +15,7 @@
       </v-col>
       <v-col cols="6">
         <v-card-text class="text-right">
-          {{ article.publishedAt }}
+          {{ publishedAtString }}
         </v-card-text>
       </v-col>
     </v-row>
@@ -28,6 +28,14 @@ const props = defineProps({
 });
 
 const { article } = toRefs(props);
+
+const publishedAtDate = new Date(article.value.publishedAt);
+
+const publishedAtString = [
+  publishedAtDate.getDay().toString().padStart(2, "0"),
+  publishedAtDate.getMonth().toString().padStart(2, "0"),
+  publishedAtDate.getFullYear(),
+].join("/");
 </script>
 
 <style scoped></style>
