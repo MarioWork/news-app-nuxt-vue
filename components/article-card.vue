@@ -29,6 +29,7 @@ const props = defineProps({
 
 const { article } = toRefs(props);
 
+//TODO: Make it computed
 const publishedAtDate = new Date(article.value.publishedAt);
 
 const publishedAtString = [
