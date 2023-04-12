@@ -1,7 +1,7 @@
 <template>
   <v-card class="pa-6 elevation-4 h-100">
     <v-img :src="article.urlToImage" cover height="400"></v-img>
-    <v-card-text class="text-h6">
+    <v-card-text class="text-h6 font-weight-bold">
       {{ article.title }}
     </v-card-text>
     <v-card-text>
@@ -14,7 +14,7 @@
         </v-card-text>
       </v-col>
       <v-col cols="6">
-        <v-card-text class="text-right">
+        <v-card-text class="text-right font-weight-bold">
           {{ publishedAtString }}
         </v-card-text>
       </v-col>
