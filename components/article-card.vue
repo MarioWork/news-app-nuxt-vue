@@ -29,14 +29,15 @@ const props = defineProps({
 
 const { article } = toRefs(props);
 
-//TODO: Make it computed
-const publishedAtDate = new Date(article.value.publishedAt);
+const publishedAtString = computed(() => {
+  const publishedAtDate = new Date(article.value.publishedAt);
 
-const publishedAtString = [
-  publishedAtDate.getUTCDate().toString().padStart(2, "0"),
-  (publishedAtDate.getUTCMonth() + 1).toString().padStart(2, "0"),
-  publishedAtDate.getUTCFullYear(),
-].join("/");
+  return [
+    publishedAtDate.getUTCDate().toString().padStart(2, "0"),
+    (publishedAtDate.getUTCMonth() + 1).toString().padStart(2, "0"),
+    publishedAtDate.getUTCFullYear(),
+  ].join("/");
+});
 </script>
 
 <style scoped></style>
