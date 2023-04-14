@@ -22,7 +22,7 @@
   </v-card>
 </template>
 
-<script allowJs setup>
+<script allowJs:true setup>
 const props = defineProps({
   article: { type: Object, required: true },
 });

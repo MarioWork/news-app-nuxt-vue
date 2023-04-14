@@ -15,7 +15,7 @@ export function useNews() {
 
   const { data: news, pending } = useLazyFetch(
     () =>
-      `/top-headlines?apiKey=${config.newsApiKey}&category=${currentCategory.value.value}&language=en&pageSize=5`,
+      `/top-headlines?apiKey=${config.newsApiKey}&category=${currentCategory.value.value}&language=en`,
     {
       baseURL: config.baseURL,
     }
