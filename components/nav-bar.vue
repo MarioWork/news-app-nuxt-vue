@@ -42,10 +42,10 @@ const { categories } = toRefs(props);
 
 const categorySelected = ref(categories[0]);
 
-const emit = defineEmits(["categorySelected"]);
+const emit = defineEmits(["onCategorySelected"]);
 
 watch(categorySelected, (newValue) => {
-  emit("categorySelected", newValue);
+  emit("onCategorySelected", newValue);
 });
 </script>
 
