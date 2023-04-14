@@ -11,20 +11,24 @@ const categories = [
 export function useNews() {
   const config = useRuntimeConfig();
 
+  const page = ref(1);
   const currentCategory = ref(categories[0]);
 
   const { data: news, pending } = useLazyFetch(
     () =>
-      `/top-headlines?apiKey=${config.newsApiKey}&category=${currentCategory.value.value}&language=en`,
+      `/top-headlines?apiKey=${config.newsApiKey}&category=${currentCategory.value.value}&language=en&page=${page.value}&pageSize=1`,
     {
       baseURL: config.baseURL,
     }
   );
+
+  const nextPage = () => page.value++;
 
   return {
     currentCategory,
     categories,
     pending,
     news,
+    nextPage,
   };
 }
