@@ -12,6 +12,7 @@ export function useNews() {
   const config = useRuntimeConfig();
 
   const page = ref(1);
+  const newsArticles = ref();
   const currentCategory = ref(categories[0]);
 
   const { data: news, pending } = useLazyFetch(
@@ -22,13 +23,25 @@ export function useNews() {
     }
   );
 
+  const onCategorySelected = (selected) => {
+    currentCategory.value = selected;
+    newsArticles.value = undefined;
+  };
+
   const nextPage = () => page.value++;
+
+  watch(news, (newValue) => {
+    newsArticles.value = newsArticles.value
+      ? [...newsArticles.value, ...newValue.articles]
+      : newValue.articles;
+  });
 
   return {
     currentCategory,
     categories,
     pending,
-    news,
+    newsArticles,
     nextPage,
+    onCategorySelected,
   };
 }
