@@ -12,7 +12,7 @@ export function useNews() {
   const config = useRuntimeConfig();
 
   const page = ref(1);
-  const newsArticles = ref();
+  const newsArticles = ref(null);
   const currentCategory = ref(categories[0]);
 
   const { data: news, pending } = useLazyFetch(
