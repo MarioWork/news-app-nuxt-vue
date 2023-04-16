@@ -32,7 +32,6 @@ const {
   nextPage,
   onCategorySelected,
 } = await useNews();
-console.log(pending.value);
 </script>
 
 <style scope>
