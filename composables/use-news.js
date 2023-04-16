@@ -14,39 +14,38 @@ export async function useNews() {
   const page = ref(1);
   const newsArticles = ref();
   const currentCategory = ref(categories[0]);
-  const dataPending = ref(false);
+  const currentCategoryValue = ref(currentCategory.value.value);
 
-  const getNews = async () => {
-    dataPending.value = true;
-    const { data, pending } = await useLazyFetch(
-      () =>
-        `/top-headlines?apiKey=${config.public["newsApiKey"]}&category=${currentCategory.value.value}&language=en&page=${page.value}&pageSize=1`,
-      {
-        baseURL: config.public["baseURL"],
-        transform: (data) => data.articles,
-      }
-    );
-    dataPending.value = pending.value;
-    newsArticles.value = newsArticles.value
-      ? [...newsArticles.value, ...data.value]
-      : data.value;
-  };
+  const { data, pending } = await useFetch(() => "/top-headlines", {
+    baseURL: config.public["baseURL"],
+    query: {
+      apiKey: config.public["newsApiKey"],
+      category: currentCategoryValue,
+      language: "en",
+      page: page,
+      pageSize: 1,
+    },
+    transform: (data) => data.articles,
+  });
+
+  newsArticles.value = data.value;
 
   const onCategorySelected = (selected) => {
     currentCategory.value = selected;
+    currentCategoryValue.value = selected.value;
     newsArticles.value = [];
   };
 
   const nextPage = () => page.value++;
 
-  await getNews();
-
-  watch([page, currentCategory], async () => await getNews());
+  watch(data, (newValue) => {
+    newsArticles.value = [...newsArticles.value, ...newValue];
+  });
 
   return {
     currentCategory,
     categories,
-    pending: dataPending,
+    pending,
     newsArticles,
     nextPage,
     onCategorySelected,
