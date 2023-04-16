@@ -19,9 +19,9 @@ export async function useNews() {
   const getNews = async () => {
     const { data, pending } = await useLazyFetch(
       () =>
-        `/top-headlines?apiKey=${config.newsApiKey}&category=${currentCategory.value.value}&language=en&page=${page.value}&pageSize=1`,
+        `/top-headlines?apiKey=${config.public["newsApiKey"]}&category=${currentCategory.value.value}&language=en&page=${page.value}&pageSize=1`,
       {
-        baseURL: config.baseURL,
+        baseURL: config.public["baseURL"],
         transform: (data) => data.articles,
       }
     );
