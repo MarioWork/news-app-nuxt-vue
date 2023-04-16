@@ -8,38 +8,44 @@ const categories = [
   { id: 4, title: "Sports", value: "sports" },
 ];
 
-export function useNews() {
+export async function useNews() {
   const config = useRuntimeConfig();
 
   const page = ref(1);
-  const newsArticles = ref(null);
+  const newsArticles = ref();
   const currentCategory = ref(categories[0]);
+  const dataPending = ref(false);
 
-  const { data: news, pending } = useLazyFetch(
-    () =>
-      `/top-headlines?apiKey=${config.newsApiKey}&category=${currentCategory.value.value}&language=en&page=${page.value}&pageSize=1`,
-    {
-      baseURL: config.baseURL,
-    }
-  );
+  const getNews = async () => {
+    const { data, pending } = await useLazyFetch(
+      () =>
+        `/top-headlines?apiKey=${config.newsApiKey}&category=${currentCategory.value.value}&language=en&page=${page.value}&pageSize=1`,
+      {
+        baseURL: config.baseURL,
+        transform: (data) => data.articles,
+      }
+    );
+    dataPending.value = pending.value;
+    newsArticles.value = newsArticles.value
+      ? [...newsArticles.value, ...data.value]
+      : data.value;
+  };
 
   const onCategorySelected = (selected) => {
     currentCategory.value = selected;
-    newsArticles.value = undefined;
+    newsArticles.value = [];
   };
 
   const nextPage = () => page.value++;
 
-  watch(news, (newValue) => {
-    newsArticles.value = newsArticles.value
-      ? [...newsArticles.value, ...newValue.articles]
-      : newValue.articles;
-  });
+  await getNews();
+
+  watch([page, currentCategory], async () => await getNews());
 
   return {
     currentCategory,
     categories,
-    pending,
+    pending: dataPending,
     newsArticles,
     nextPage,
     onCategorySelected,
