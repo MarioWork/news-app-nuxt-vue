@@ -17,6 +17,7 @@ export async function useNews() {
   const dataPending = ref(false);
 
   const getNews = async () => {
+    dataPending.value = true;
     const { data, pending } = await useLazyFetch(
       () =>
         `/top-headlines?apiKey=${config.public["newsApiKey"]}&category=${currentCategory.value.value}&language=en&page=${page.value}&pageSize=1`,
