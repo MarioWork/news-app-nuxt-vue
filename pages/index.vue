@@ -31,7 +31,7 @@ const {
   pending,
   nextPage,
   onCategorySelected,
-} = useNews();
+} = await useNews();
 </script>
 
 <style scope>
