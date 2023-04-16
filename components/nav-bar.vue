@@ -31,16 +31,22 @@
 </template>
 
 <script setup>
+import { ref } from "vue";
+
 const props = defineProps({
   categories: {
     type: Array.of(Object),
     required: true,
   },
+  currentCategory: {
+    type: Object,
+    required: true,
+  },
 });
 
-const { categories } = toRefs(props);
+const { currentCategory, categories } = toRefs(props);
 
-const categorySelected = ref(categories[0]);
+const categorySelected = ref(currentCategory.value);
 
 const emit = defineEmits(["onCategorySelected"]);
 
