@@ -10,7 +10,7 @@
       <v-btn @click="nextPage">Press me</v-btn>
       <v-row class="pa-6">
         <v-col
-          v-for="article in newsArticles"
+          v-for="article in articles"
           :key="article.id"
           cols="12"
           lg="6"
@@ -27,7 +27,7 @@
 const {
   categories,
   currentCategory,
-  newsArticles,
+  articles,
   pending,
   nextPage,
   onCategorySelected,
