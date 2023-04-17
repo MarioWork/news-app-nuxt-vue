@@ -12,7 +12,7 @@ export async function useNews() {
   const config = useRuntimeConfig();
 
   const page = ref(1);
-  const newsArticles = ref();
+  const articles = ref();
   const currentCategory = ref(categories[0]);
   const currentCategoryValue = ref(currentCategory.value.value);
 
@@ -28,25 +28,25 @@ export async function useNews() {
     transform: (data) => data.articles,
   });
 
-  newsArticles.value = data.value;
+  articles.value = data.value;
 
   const onCategorySelected = (selected) => {
     currentCategory.value = selected;
     currentCategoryValue.value = selected.value;
-    newsArticles.value = [];
+    articles.value = [];
   };
 
   const nextPage = () => page.value++;
 
   watch(data, (newValue) => {
-    newsArticles.value = [...newsArticles.value, ...newValue];
+    articles.value = [...articles.value, ...newValue];
   });
 
   return {
     currentCategory,
     categories,
     pending,
-    newsArticles,
+    articles,
     nextPage,
     onCategorySelected,
   };
