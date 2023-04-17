@@ -1,25 +1,30 @@
 <template>
-  <v-card class="pa-6 elevation-4 h-100">
-    <v-img :src="articleThumbnail" cover height="400"></v-img>
-    <v-card-text class="text-h6 font-weight-bold">
-      {{ article.title }}
-    </v-card-text>
-    <v-card-text>
-      {{ article.description }}
-    </v-card-text>
-    <v-row>
-      <v-col cols="6">
-        <v-card-text>
-          {{ article.author }}
-        </v-card-text>
-      </v-col>
-      <v-col cols="6">
-        <v-card-text class="text-right font-weight-bold">
-          {{ publishedAtString }}
-        </v-card-text>
-      </v-col>
-    </v-row>
-  </v-card>
+  <NuxtLink
+    :to="`/article/${article.title}`"
+    class="no-text-decoration cursor-pointer"
+  >
+    <v-card class="pa-6 elevation-4 h-100">
+      <v-img :src="articleThumbnail" cover height="400"></v-img>
+      <v-card-text class="text-h6 font-weight-bold">
+        {{ article.title }}
+      </v-card-text>
+      <v-card-text>
+        {{ article.description }}
+      </v-card-text>
+      <v-row>
+        <v-col cols="6">
+          <v-card-text>
+            {{ article.author }}
+          </v-card-text>
+        </v-col>
+        <v-col cols="6">
+          <v-card-text class="text-right font-weight-bold">
+            {{ publishedAtString }}
+          </v-card-text>
+        </v-col>
+      </v-row>
+    </v-card>
+  </NuxtLink>
 </template>
 
 <script allowJs:true setup>
@@ -46,4 +51,12 @@ const articleThumbnail = computed(() => {
 });
 </script>
 
-<style scoped></style>
+<style scoped>
+.no-text-decoration {
+  text-decoration: none;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+</style>
