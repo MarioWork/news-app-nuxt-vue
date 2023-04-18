@@ -1,42 +1,35 @@
-# Nuxt 3 Minimal Starter
+# Nuxt 3 News App
 
-Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+This project consists of a simple news web app to help learn vue 3, nuxt 3 and vuetify UI framework.
 
-## Setup
+# API Consumed
 
-Make sure to install the dependencies:
+- [News API](https://newsapi.org/)
 
-```bash
-# yarn
-yarn install
+## UI Images
 
-# npm
-npm install
-
-# pnpm
-pnpm install
-```
-
-## Development Server
-
-Start the development server on `http://localhost:3000`
+## How to run this project
 
 ```bash
-npm run dev
+ git clone "project link"
+
+ cd news-app-nuxt-vue
+
+ npm install
+
+ npm run dev
 ```
 
-## Production
+## Technologies
 
-Build the application for production:
+- Javascript
+- VsCode
+- Html
+- CSS
+- Vue 3
+- Nuxt 3
+- Vuetify
 
-```bash
-npm run build
-```
+## Collaborators
 
-Locally preview production build:
-
-```bash
-npm run preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+[Mario Vieira](https://github.com/MarioWork)
