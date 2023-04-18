@@ -1,6 +1,7 @@
 <template>
   <NuxtLink
-    :to="`/article/${article.title}`"
+    :to="article.url"
+    target="_blank"
     class="no-text-decoration cursor-pointer"
   >
     <v-card class="pa-6 elevation-4 h-100">
