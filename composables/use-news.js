@@ -23,7 +23,6 @@ export async function useNews() {
       category: currentCategoryValue,
       language: "en",
       page: page,
-      pageSize: 1,
     },
     transform: (data) => data.articles,
   });
