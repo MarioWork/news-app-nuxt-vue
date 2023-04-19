@@ -1,8 +1,8 @@
 <template>
   <NuxtLink
-    :to="article.url"
-    target="_blank"
+    to="/article/details"
     class="no-text-decoration cursor-pointer"
+    @click="onCardClick"
   >
     <v-card class="pa-6 elevation-4 h-100">
       <v-img :src="articleThumbnail" cover height="400"></v-img>
@@ -50,6 +50,10 @@ const articleThumbnail = computed(() => {
     ? article.value.urlToImage
     : "https://img.freepik.com/free-photo/top-view-old-french-newspaper-pieces_23-2149318857.jpg?w=2000&t=st=1681428463~exp=1681429063~hmac=4079efc95881044810b96f8a70a191fbfa2d648d4295f75461fd67e71d804b8f";
 });
+
+const onCardClick = () => {
+  useState("article", () => article);
+};
 </script>
 
 <style scoped>
