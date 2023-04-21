@@ -4,7 +4,7 @@
     class="no-text-decoration cursor-pointer"
     @click="onCardClick"
   >
-    <v-card class="pa-6 elevation-4 h-100">
+    <v-card class="elevation-4 h-100">
       <v-img :src="articleThumbnail" cover height="400"></v-img>
       <v-card-text class="text-h6 font-weight-bold">
         {{ article.title }}
@@ -32,7 +32,7 @@
 const props = defineProps({
   article: { type: Object, required: true },
 });
-
+//TODO: Fix image size when small screen
 const { article } = toRefs(props);
 
 const publishedAtString = computed(() => {
