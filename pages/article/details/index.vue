@@ -7,7 +7,15 @@
       </v-row>
       <v-row>
         <v-col cols="12">
-          <div>{{ state }}</div>
+          <v-card-text class="text-h6 font-weight-bold">
+            {{ state.title }}
+          </v-card-text>
+          <v-card-text>
+            {{ state.description }}
+          </v-card-text>
+          <v-card-text>
+            {{ state?.content }}
+          </v-card-text>
         </v-col>
       </v-row>
     </v-container>
