@@ -52,7 +52,7 @@ const articleThumbnail = computed(() => {
 });
 
 const onCardClick = () => {
-  useState("article", () => article);
+  useState("article").value = article;
 };
 </script>
 
