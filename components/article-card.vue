@@ -5,7 +5,7 @@
     @click="onCardClick"
   >
     <v-card class="elevation-4 h-100">
-      <v-img :src="articleThumbnail" cover height="400"></v-img>
+      <v-img :src="articleThumbnail" cover class="dynamic-image"></v-img>
       <v-card-text class="text-h6 font-weight-bold">
         {{ article.title }}
       </v-card-text>
@@ -63,5 +63,21 @@ const onCardClick = () => {
 
 .cursor-pointer {
   cursor: pointer;
+}
+
+.dynamic-image {
+  height: 400px;
+}
+
+@media only screen and (max-width: 966px) {
+  .dynamic-image {
+    height: 300px;
+  }
+}
+
+@media only screen and (max-width: 320px) {
+  .dynamic-image {
+    height: 200px;
+  }
 }
 </style>
