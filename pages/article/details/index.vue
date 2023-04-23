@@ -18,6 +18,9 @@
           </v-card-text>
         </v-col>
       </v-row>
+      <nuxt-link :to="state.url">
+        <v-btn>Go to Article</v-btn>
+      </nuxt-link>
     </v-container>
   </v-card>
 </template>
