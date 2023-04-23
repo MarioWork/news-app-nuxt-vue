@@ -29,10 +29,12 @@
 </template>
 
 <script allowJs:true setup>
+import nuxtStorage from "nuxt-storage";
+
 const props = defineProps({
   article: { type: Object, required: true },
 });
-//TODO: Fix image size when small screen
+
 const { article } = toRefs(props);
 
 const publishedAtString = computed(() => {
@@ -52,7 +54,10 @@ const articleThumbnail = computed(() => {
 });
 
 const onCardClick = () => {
-  useState("article").value = article;
+  nuxtStorage.localStorage.setData(
+    "test",
+    JSON.stringify(toRaw(article.value))
+  );
 };
 </script>
 
