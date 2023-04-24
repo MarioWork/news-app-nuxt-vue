@@ -28,7 +28,7 @@
 <script setup>
 import nuxtStorage from "nuxt-storage";
 
-const article = ref(JSON.parse(nuxtStorage.localStorage.getData("test")));
+const article = ref(JSON.parse(nuxtStorage.localStorage.getData("article")));
 const articleThumbnail = computed(() => {
   return article.value.urlToImage
     ? article.value.urlToImage

@@ -55,7 +55,7 @@ const articleThumbnail = computed(() => {
 
 const onCardClick = () => {
   nuxtStorage.localStorage.setData(
-    "test",
+    "article",
     JSON.stringify(toRaw(article.value))
   );
 };
