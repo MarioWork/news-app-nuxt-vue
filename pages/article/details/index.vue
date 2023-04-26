@@ -2,12 +2,9 @@
 <template>
   <v-card class="remove-padding border-none">
     <v-container class="w-100 h-screen remove-padding">
-      <v-row class="h-50">
-        <v-img :src="articleThumbnail" class="w-100" aspect-ratio="16/9" cover>
-        </v-img>
-      </v-row>
-      <v-row>
-        <v-col cols="12">
+      <v-row class="d-center">
+        <v-col cols="12" lg="6" xl="4" class="w-100">
+          <v-img :src="articleThumbnail" cover class="dynamic-image"> </v-img>
           <v-card-text class="text-h6 font-weight-bold">
             {{ article.title }}
           </v-card-text>
@@ -17,11 +14,11 @@
           <v-card-text>
             {{ article?.content }}
           </v-card-text>
+          <nuxt-link :to="article.url" target="_blank">
+            <v-btn>Go to Article</v-btn>
+          </nuxt-link>
         </v-col>
       </v-row>
-      <nuxt-link :to="article.url">
-        <v-btn>Go to Article</v-btn>
-      </nuxt-link>
     </v-container>
   </v-card>
 </template>
@@ -37,12 +34,16 @@ const articleThumbnail = computed(() => {
 });
 </script>
 
-<style lang="scss" scoped>
+<style scoped>
 .remove-padding {
   padding: 0;
 }
 
 .border-none {
   border-radius: 0;
+}
+
+.d-center {
+  justify-content: center;
 }
 </style>
