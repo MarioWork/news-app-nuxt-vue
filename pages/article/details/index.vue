@@ -1,25 +1,23 @@
 //TODO: Add date, source, back button
 <template>
-  <v-card class="remove-padding border-none">
-    <v-container class="w-100 h-screen remove-padding">
-      <v-row class="d-center">
-        <v-col cols="12" lg="6" xl="4" class="w-100">
-          <v-img :src="articleThumbnail" cover class="dynamic-image"> </v-img>
-          <v-card-text class="text-h6 font-weight-bold">
-            {{ article.title }}
-          </v-card-text>
-          <v-card-text>
-            {{ article.description }}
-          </v-card-text>
-          <v-card-text>
-            {{ article?.content }}
-          </v-card-text>
-          <nuxt-link :to="article.url" target="_blank">
-            <v-btn>Go to Article</v-btn>
-          </nuxt-link>
-        </v-col>
-      </v-row>
-    </v-container>
+  <v-card class="remove-padding h-screen border-none">
+    <v-row class="d-center">
+      <v-col cols="12" lg="6" xl="4" class="w-100">
+        <v-img :src="articleThumbnail" cover class="dynamic-image"> </v-img>
+        <v-card-text class="text-h6 font-weight-bold">
+          {{ article.title }}
+        </v-card-text>
+        <v-card-text>
+          {{ article.description }}
+        </v-card-text>
+        <v-card-text>
+          {{ article?.content }}
+        </v-card-text>
+        <nuxt-link :to="article.url" target="_blank">
+          <v-btn>Go to Article</v-btn>
+        </nuxt-link>
+      </v-col>
+    </v-row>
   </v-card>
 </template>
 
@@ -45,5 +43,9 @@ const articleThumbnail = computed(() => {
 
 .d-center {
   justify-content: center;
+}
+
+.dynamic-image {
+  max-height: 400px;
 }
 </style>
