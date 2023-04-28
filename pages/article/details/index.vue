@@ -2,7 +2,7 @@
 <template>
   <v-card class="remove-padding h-screen border-none">
     <v-row class="d-center">
-      <v-col cols="12" lg="6" xl="4" class="w-100">
+      <v-col cols="12" lg="10" xl="5" class="w-100">
         <v-img :src="articleThumbnail" cover class="dynamic-image"> </v-img>
         <v-card-text class="text-h6 font-weight-bold">
           {{ article.title }}
@@ -13,8 +13,11 @@
         <v-card-text>
           {{ article?.content }}
         </v-card-text>
+        <nuxt-link to="/" class="mr-2 pl-4">
+          <v-btn color="black" rounded="lg" elevation="1">Back</v-btn>
+        </nuxt-link>
         <nuxt-link :to="article.url" target="_blank">
-          <v-btn>Go to Article</v-btn>
+          <v-btn color="black" rounded="lg" elevation="1">Original</v-btn>
         </nuxt-link>
       </v-col>
     </v-row>
@@ -46,6 +49,6 @@ const articleThumbnail = computed(() => {
 }
 
 .dynamic-image {
-  max-height: 400px;
+  max-height: 500px;
 }
 </style>
