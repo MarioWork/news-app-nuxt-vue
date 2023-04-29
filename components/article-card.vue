@@ -20,7 +20,7 @@
         </v-col>
         <v-col cols="6">
           <v-card-text class="text-right font-weight-bold">
-            {{ publishedAtString }}
+            {{ formatDateToString(article.publishedAt) }}
           </v-card-text>
         </v-col>
       </v-row>
@@ -30,22 +30,13 @@
 
 <script allowJs:true setup>
 import nuxtStorage from "nuxt-storage";
+import { formatDateToString } from "~/utils/format-date";
 
 const props = defineProps({
   article: { type: Object, required: true },
 });
 
 const { article } = toRefs(props);
-
-const publishedAtString = computed(() => {
-  const publishedAtDate = new Date(article.value.publishedAt);
-
-  return [
-    publishedAtDate.getUTCDate().toString().padStart(2, "0"),
-    (publishedAtDate.getUTCMonth() + 1).toString().padStart(2, "0"),
-    publishedAtDate.getUTCFullYear(),
-  ].join("/");
-});
 
 const articleThumbnail = computed(() => {
   return article.value.urlToImage
