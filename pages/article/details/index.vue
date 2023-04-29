@@ -7,12 +7,16 @@
         <v-card-text class="text-h6 font-weight-bold">
           {{ article.title }}
         </v-card-text>
+        <v-card-text class="text-h6">
+          {{ article?.author }}
+        </v-card-text>
         <v-card-text>
           {{ article.description }}
         </v-card-text>
         <v-card-text>
           {{ article?.content }}
         </v-card-text>
+
         <nuxt-link to="/" class="mr-2 pl-4">
           <v-btn color="black" rounded="lg" elevation="1">Back</v-btn>
         </nuxt-link>
