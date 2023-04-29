@@ -4,19 +4,21 @@
     <v-row class="d-center">
       <v-col cols="12" lg="10" xl="5" class="w-100">
         <v-img :src="articleThumbnail" cover class="dynamic-image"> </v-img>
-        <v-card-text class="text-h6 font-weight-bold">
+        <v-card-text v-if="article.title" class="text-h6 font-weight-bold">
           {{ article.title }}
         </v-card-text>
-        <v-card-text v-if="article.author" class="text-h6">
-          {{ article?.author }}
+        <v-card-text v-if="article.publishedAt" class="text-h6">
+          {{ formatDateToString(article.publishedAt) }}
         </v-card-text>
-        <v-card-text>
+        <v-card-text v-if="article.description">
           {{ article.description }}
         </v-card-text>
-        <v-card-text>
-          {{ article?.content }}
+        <v-card-text v-if="article.content">
+          {{ article.content }}
         </v-card-text>
-
+        <v-card-text v-if="article.author" class="text-h6">
+          {{ article.author }}
+        </v-card-text>
         <nuxt-link to="/" class="mr-2 pl-4">
           <v-btn color="black" rounded="lg" elevation="1">Back</v-btn>
         </nuxt-link>
@@ -30,6 +32,7 @@
 
 <script setup>
 import nuxtStorage from "nuxt-storage";
+import { formatDateToString } from "~/utils/format-date";
 
 const article = ref(JSON.parse(nuxtStorage.localStorage.getData("article")));
 
