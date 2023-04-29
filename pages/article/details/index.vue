@@ -7,7 +7,7 @@
         <v-card-text class="text-h6 font-weight-bold">
           {{ article.title }}
         </v-card-text>
-        <v-card-text class="text-h6">
+        <v-card-text v-if="article.author" class="text-h6">
           {{ article?.author }}
         </v-card-text>
         <v-card-text>
@@ -32,6 +32,7 @@
 import nuxtStorage from "nuxt-storage";
 
 const article = ref(JSON.parse(nuxtStorage.localStorage.getData("article")));
+
 const articleThumbnail = computed(() => {
   return article.value.urlToImage
     ? article.value.urlToImage
