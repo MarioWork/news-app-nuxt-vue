@@ -1,4 +1,3 @@
-//TODO: Add date, source, back button
 <template>
   <v-card class="remove-padding h-screen border-none">
     <v-row class="d-center">
