@@ -7,7 +7,7 @@
     />
     <v-main v-if="pending">Loading...</v-main>
     <v-main v-else :scrollable="true" class="h-100">
-      <v-btn @click="nextPage">Press me</v-btn>
+      <v-btn @click="nextPage">Load more</v-btn>
       <v-row class="pa-6">
         <v-col
           v-for="article in articles"
